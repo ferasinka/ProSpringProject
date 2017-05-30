@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:properties/application.properties" local-override="true"/>
+
+	<bean id="appProperty" class="com.ferasinka.prospringproject.ch4.AppProperty">
+		<property name="applicationHome" value="${application.home}"/>
+		<property name="userHome" value="${user.home}"/>
+	</bean>
+
+	<!--
+	<bean id="publisher" clacom.ferasinka.prospringprojectojectject.ch4.Publisher"/>
+
+	<bean id="messageEventListener" clacom.ferasinka.prospringprojectojectject.ch4.MessageEventListener"/>
+	-->
+
+	<!--
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" ref="basenames"/>
+	</bean>
+
+	<util:list id="basenames">
+		<value>buttons</value>
+		<value>labels</value>
+	</util:list>
+	-->
+
+	<!--
+	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry kcom.ferasinka.prospringprojectojectject.ch4.Name" valcom.ferasinka.prospringprojectojectject.ch4.NamePropertyEditor"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="exampleBean" clacom.ferasinka.prospringprojectojectject.ch4.CustomEditorExample">
+		<property name="name" value="Andrey Kuznetsov"/>
+	</bean>
+	-->
+
+	<!--
+	<util:list id="propertyEditorRegistrarsList">
+		<bean clacom.ferasinka.prospringprojectojectject.ch4.PropertyEditorBean$CustomPropertyEditorRegistrar"/>
+	</util:list>
+
+	<bean id="builtInSample" clacom.ferasinka.prospringprojectojectject.ch4.PropertyEditorBean">
+		<property name="bytes" value="Hello, world!"/>
+		<property name="cls" value="java.lang.String"/>
+		<property name="trueOrFalse" value="true"/>
+		<property name="stringList" ref="stringList"/>
+		<property name="stream" value="test.txt"/>
+		<property name="floatValue" value="123.45678"/>
+		<property name="date" value="05/03/13"/>
+		<property name="file" value="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
+		<property name="locale" value="en_US"/>
+		<property name="pattern" value="a*b"/>
+		<property name="properties" value="name=Andrey age=28"/>
+		<property name="trimString" value="   String needs trimming   "/>
+		<property name="url" value="https://spring.io"/>
+	</bean>
+
+	<util:list id="stringList">
+		<value>String member 1</value>
+		<value>String member 2</value>
+	</util:list>
+	-->
+
+	<!--
+	<bean id="shaDigest" clacom.ferasinka.prospringprojectojectject.ch4.MessageDigestFactoryBean">
+		<property name="algorithmName" value="SHA1"/>
+	</bean>
+
+	<bean id="defaultDigest" clacom.ferasinka.prospringprojectojectject.ch4.MessageDigestFactoryBean"/>
+
+	<bean id="shaDigestFactory" clacom.ferasinka.prospringprojectojectject.ch4.MessageDigestFactory">
+		<property name="algorithmName" value="SHA1"/>
+	</bean>
+
+	<bean id="defaultDigestFactory" clacom.ferasinka.prospringprojectojectject.ch4.MessageDigestFactory"/>
+
+	<bean id="shaDigest" factory-bean="shaDigestFactory" factory-method="createInstance"/>
+
+	<bean id="defaultDigest" factory-bean="defaultDigestFactory" factory-method="createInstance"/>
+
+	<bean id="digester" clacom.ferasinka.prospringprojectojectject.ch4.MessageDigester">
+		<property name="digest1" ref="shaDigest"/>
+		<property name="digest2" ref="defaultDigest"/>
+	</bean>
+	-->
+
+	<!--
+	<bean id="beanNamePrinter" clacom.ferasinka.prospringprojectojectject.ch4.BeanNamePrinter"/>
+	-->
+
+	<!--
+	<bean id="destructiveBean" clacom.ferasinka.prospringprojectojectject.ch4.DestructiveBeanWithInterface">
+		<property name="filePath" value="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}text.txt"/>
+	</bean>
+	-->
+
+	<!--
+	<bean id="destructiveBean" clacom.ferasinka.prospringprojectojectject.ch4.DestructiveBean" destroy-method="destroy">
+		<property name="filePath" value="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}text.txt"/>
+	</bean>
+	-->
+
+	<!--
+	<bean id="simpleBean1" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBean" init-method="init">
+		<property name="name" value="Andrey Kuznetsov"/>
+		<property name="age" value="28"/>
+	</bean>
+
+	<bean id="simpleBean2" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBean" init-method="init">
+		<property name="age" value="28"/>
+	</bean>
+
+	<bean id="simpleBean3" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBean" init-method="init">
+		<property name="name" value="Andrey Kuznetsov"/>
+	</bean>
+	-->
+
+	<!--
+	<bean id="simpleBean1" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBeanWithInterface">
+		<property name="name" value="Andrey Kuznetsov"/>
+		<property name="age" value="28"/>
+	</bean>
+
+	<bean id="simpleBean2" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBeanWithInterface">
+		<property name="age" value="28"/>
+	</bean>
+
+	<bean id="simpleBean3" clacom.ferasinka.prospringprojectojectject.ch4.SimpleBeanWithInterface">
+		<property name="name" value="Andrey Kuznetsov"/>
+	</bean>
+	-->
+</beans>

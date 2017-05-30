@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="messageRenderer" class="com.ferasinka.prospringproject.ch2.StandardOutMessageRenderer">
+		<property name="messageProvider" ref="messageProvider"/>
+	</bean>
+
+	<bean id="messageProvider" class="com.ferasinka.prospringproject.ch2.ConfigurableMessageProvider">
+		<constructor-arg value="This is a configurable message"/>
+	</bean>
+
+	<!--
+	<bean id="injectSimpleConfig" clacom.ferasinka.prospringprojectojectject.ch3.xml.InjectSimpleConfig"/>
+
+	<bean id="injectSimple" clacom.ferasinka.prospringprojectojectject.ch3.xml.InjectSimple">
+		<property name="name" value="#{injectSimpleConfig.name}"/>
+		<property name="age" value="#{injectSimpleConfig.age + 1}"/>
+		<property name="height" value="#{injectSimpleConfig.height}"/>
+		<property name="programer" value="#{injectSimpleConfig.programer}"/>
+		<property name="ageInSeconds" value="#{injectSimpleConfig.ageInSeconds}"/>
+	</bean>
+
+	<bean id="oracle" class="java.lang.StringBuilder">
+		<constructor-arg index="0" type="java.lang.String" value="Oracle"/>
+	</bean>
+
+	<bean id="injectCollection" clacom.ferasinka.prospringprojectojectject.ch3.xml.CollectionInjection">
+		<property name="map">
+			<map>
+				<entry key="hello" value="Hello, world!"/>
+				<entry key="orcl" value-ref="oracle"/>
+			</map>
+		</property>
+
+		<property name="props">
+			<props>
+				<prop key="firstName">Andrey</prop>
+				<prop key="secondName">Kuznetsov</prop>
+			</props>
+		</property>
+
+		<property name="set">
+			<set>
+				<value>Hello, world!</value>
+				<ref bean="oracle"/>
+			</set>
+		</property>
+
+		<property name="list">
+			<list>
+				<value>Hello, world!</value>
+
+				<ref bean="oracle"/>
+
+				<list>
+					<value>Inner list</value>
+					<value>Java</value>
+				</list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="helper" clacom.ferasinka.prospringprojectojectject.ch3.MyHelper" scope="prototype"/>
+
+	<bean id="abstractLookupBean" clacom.ferasinka.prospringprojectojectject.ch3.AbstractLookupDemoBean">
+		<lookup-method name="getMyHelper" bean="helper"/>
+	</bean>
+
+	<bean id="standardLookupBean" clacom.ferasinka.prospringprojectojectject.ch3.StandardLookupDemoBean">
+		<property name="myHelper" ref="helper"/>
+	</bean>
+
+	<bean id="methodReplacer" clacom.ferasinka.prospringprojectojectject.ch3.FormatMessageReplacer"/>
+
+	<bean id="replacementTarget" clacom.ferasinka.prospringprojectojectject.ch3.ReplacementTarget">
+		<replaced-method name="formatMessage" replacer="methodReplacer">
+			<arg-type>String</arg-type>
+		</replaced-method>
+	</bean>
+
+	<bean id="standardTarget" clacom.ferasinka.prospringprojectojectject.ch3.ReplacementTarget"/>
+
+	<bean id="name1" name="name2 name3, name4; name5" class="java.lang.String"/>
+	<alias name="name1" alias="name6"/>
+
+	<bean id="nonSingleton" class="java.lang.String" scope="prototype">
+		<constructor-arg index="0" value="Andrey Kuznetsov"/>
+	</bean>
+
+	<bean id="foo" clacom.ferasinka.prospringprojectojectject.ch3.Foo"/>
+
+	<bean id="bar1" clacom.ferasinka.prospringprojectojectject.ch3.Bar"/>
+
+	<bean id="targetByName" autowire="byName" clacom.ferasinka.prospringprojectojectject.ch3.xml.Target" lazy-init="true"/>
+
+	<bean id="targetByType" autowire="byType" clacom.ferasinka.prospringprojectojectject.ch3.xml.Target" lazy-init="true"/>
+
+	<bean id="targetConstructor" autowire="constructor" clacom.ferasinka.prospringprojectojectject.ch3.xml.Target" lazy-init="true"/>
+
+	<bean id="inheritParent" clacom.ferasinka.prospringprojectojectject.ch3.xml.SimpleBean">
+		<property name="name" value="Andrey"/>
+		<property name="age" value="28"/>
+	</bean>
+
+	<bean id="inheritChild" clacom.ferasinka.prospringprojectojectject.ch3.xml.SimpleBean" parent="inheritParent">
+		<property name="age" value="33"/>
+	</bean>
+	-->
+</beans>

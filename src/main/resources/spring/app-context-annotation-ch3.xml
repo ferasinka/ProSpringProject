@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config/>
+
+	<context:component-scan base-package="com.ferasinka.prospringproject.ch2"/>
+	<context:component-scan base-package="com.ferasinka.prospringproject.ch3.annotation"/>
+
+	<bean id="message" class="java.lang.String">
+		<constructor-arg index="0" value="Hello, world!"/>
+	</bean>
+
+	<bean id="oracle" class="java.lang.StringBuilder">
+		<constructor-arg index="0" type="java.lang.String" value="Oracle"/>
+	</bean>
+
+	<util:map id="map">
+		<entry key="someValue" value="Hello, world!"/>
+		<entry key="someBean" value-ref="oracle"/>
+	</util:map>
+
+	<util:properties id="props">
+		<prop key="firstName">Andrey</prop>
+		<prop key="secondName">Kuznetsov</prop>
+	</util:properties>
+
+	<util:set id="set">
+		<value>Hello, world!</value>
+		<ref bean="oracle"/>
+	</util:set>
+
+	<util:list id="list">
+		<value>Hello, world!</value>
+		<ref bean="oracle"/>
+	</util:list>
+</beans>
