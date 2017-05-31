@@ -7,10 +7,14 @@
 
 	<properties>
 		<spring.version>4.3.8.RELEASE</spring.version>
+		<hibernate.version>5.2.10.Final</hibernate.version>
 		<logback.version>1.2.3</logback.version>
 		<groovy.version>2.4.10</groovy.version>
 		<aspectj.version>1.8.10</aspectj.version>
 		<postgresql.version>42.1.1</postgresql.version>
+		<apache.commons.dbcp2.version>2.1.1</apache.commons.dbcp2.version>
+		<bonecp.version>0.8.0.RELEASE</bonecp.version>
+		<h2db.version>1.4.195</h2db.version>
 	</properties>
 
 	<build>
@@ -76,18 +80,25 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
 		<!-- Apache Commons DBCP-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
-			<version>2.1.1</version>
+			<version>${apache.commons.dbcp2.version}</version>
 		</dependency>
 
 		<!-- BoneCP -->
 		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
-			<version>0.8.0.RELEASE</version>
+			<version>${bonecp.version}</version>
 		</dependency>
 
 		<!-- Logback -->
@@ -108,7 +119,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.195</version>
+			<version>${h2db.version}</version>
 		</dependency>
 	</dependencies>
 </project>
