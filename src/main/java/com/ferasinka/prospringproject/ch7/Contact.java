@@ -2,12 +2,24 @@ package com.ferasinka.prospringproject.ch7;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "contact")
+@NamedQueries({
+		@NamedQuery(
+				name = "Contact.findAllWithDetail",
+				query = "select distinct c from Contact c left join fetch" +
+						" c.contactTelDetails t left join fetch c.hobbies h"
+		),
+		
+		@NamedQuery(
+				name = "Contact.findById",
+				query = "select distinct c from Contact c left join fetch" +
+						" c.contactTelDetails t left join fetch c.hobbies h where c.id = :id"
+		)})
 public class Contact implements Serializable {
 	private Long id;
 	private int version;
@@ -99,6 +111,6 @@ public class Contact implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Contact - id: " + id + ", First name: " + firstName + ", Last name: " + lastName + ", Birthday: " + birthDate + "\n";
+		return "Contact - id: " + id + ", First name: " + firstName + ", Last name: " + lastName + ", Birthday: " + birthDate;
 	}
 }

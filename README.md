@@ -9,4 +9,5 @@ Source code with my modifications from Pro Spring 4th Edition: http://a.co/8Tvb5
 - ch4: Spring Configuration in Detail
 - ch5: Introducing Spring AOP
 - ch6: Spring JDBC Support
+- ch7: Using Hibernate in Spring
 - _Next chapters will be soon..._
