@@ -66,6 +66,13 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Spring ORM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 		<!-- Spring Transaction -->
 		<dependency>
 			<groupId>org.springframework</groupId>
