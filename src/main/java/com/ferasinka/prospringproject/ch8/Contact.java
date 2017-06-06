@@ -12,13 +12,13 @@ import java.util.Set;
 		@NamedQuery(name = "Contact.findAll",
 				query = "select c from Contact c"),
 		@NamedQuery(name = "Contact.findById",
-				query = "select distinct c from Contact c" +
-						"left join fetch c.contactTelDetails t" +
-						"left join fetch c.hobbies h" +
+				query = "select distinct c from Contact c " +
+						"left join fetch c.contactTelDetails t " +
+						"left join fetch c.hobbies h " +
 						"where c.id = :id"),
 		@NamedQuery(name = "Contact.findAllWithDetail",
-				query = "select distinct c from Contact c" +
-						"left join fetch c.contactTelDetails t" +
+				query = "select distinct c from Contact c " +
+						"left join fetch c.contactTelDetails t " +
 						"left join fetch c.hobbies h")
 })
 public class Contact implements Serializable {

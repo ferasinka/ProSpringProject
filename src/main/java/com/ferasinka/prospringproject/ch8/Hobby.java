@@ -25,8 +25,7 @@ public class Hobby implements Serializable {
 	@JoinTable(
 			name = "contact_hobby_detail",
 			joinColumns = @JoinColumn(name = "hobby_id"),
-			inverseJoinColumns = @JoinColumn(name = "contact_id")
-	)
+			inverseJoinColumns = @JoinColumn(name = "contact_id"))
 	public Set<Contact> getContacts() {
 		return contacts;
 	}
