@@ -68,8 +68,8 @@ public class SpringJpaSample {
 //
 //		printContactsWithDetails(contactService.findAllWithDetail());
 // 		------------------------
-
-	
+		List<Contact> contacts = contactService.findByCriteriaQuery("John", "Smith");
+		printContactsWithDetails(contacts);
 	}
 	
 	private static void printContacts(List<Contact> contacts) {
