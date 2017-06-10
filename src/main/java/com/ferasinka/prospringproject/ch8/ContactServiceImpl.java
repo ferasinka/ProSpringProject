@@ -70,6 +70,8 @@ public class ContactServiceImpl implements ContactService {
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	public List<Contact> findAllByNativeQuery() {
-		return em.createNativeQuery(ALL_CONTACT_NATIVE_QUERY, Contact.class).getResultList();
+//		return em.createNativeQuery(ALL_CONTACT_NATIVE_QUERY, Contact.class).getResultList();
+		
+		return em.createNativeQuery(ALL_CONTACT_NATIVE_QUERY, "contactResult").getResultList();
 	}
 }

@@ -21,6 +21,7 @@ import java.util.Set;
 						"left join fetch c.contactTelDetails t " +
 						"left join fetch c.hobbies h")
 })
+@SqlResultSetMapping(name = "contactReslut", entities = @EntityResult(entityClass = Contact.class))
 public class Contact implements Serializable {
 	private Long id;
 	private int version;
