@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Service("jpaContactService")
@@ -35,19 +34,33 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	@Transactional(readOnly = true)
 	public Contact findById(Long id) {
-		TypedQuery<Contact> query = em.createNamedQuery("Contact.findById", Contact.class);
-		query.setParameter("id", id);
-		
-		return query.getSingleResult();
+		return em.createNamedQuery("Contact.findById", Contact.class)
+				.setParameter("id", id)
+				.getSingleResult();
 	}
 	
 	@Override
 	public Contact save(Contact contact) {
-		return null;
+		if (contact.getId() == null) {
+			LOG.info("Inserting new contact");
+			
+			em.persist(contact);
+		} else {
+			em.merge(contact);
+			
+			LOG.info("Updating existing contact");
+		}
+		
+		LOG.info("Contact saved with id: " + contact.getId());
+		
+		return contact;
 	}
 	
 	@Override
 	public void delete(Contact contact) {
-	
+		Contact mergedContact = em.merge(contact);
+		em.remove(mergedContact);
+		
+		LOG.info("Contact with id: " + contact.getId() + " deleted successfully");
 	}
 }
