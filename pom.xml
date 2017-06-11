@@ -7,6 +7,7 @@
 
 	<properties>
 		<spring.version>4.3.9.RELEASE</spring.version>
+		<spring-data-jpa.version>1.11.4.RELEASE</spring-data-jpa.version>
 		<hibernate.version>5.2.10.Final</hibernate.version>
 		<logback.version>1.2.3</logback.version>
 		<groovy.version>2.4.10</groovy.version>
@@ -15,6 +16,7 @@
 		<apache.commons.dbcp2.version>2.1.1</apache.commons.dbcp2.version>
 		<bonecp.version>0.8.0.RELEASE</bonecp.version>
 		<h2db.version>1.4.195</h2db.version>
+		<guava.version>22.0</guava.version>
 	</properties>
 
 	<build>
@@ -87,6 +89,13 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+
 		<!-- Hibernate Core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -106,6 +115,13 @@
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp</artifactId>
 			<version>${bonecp.version}</version>
+		</dependency>
+
+		<!-- Google Guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 
 		<!-- Logback -->
