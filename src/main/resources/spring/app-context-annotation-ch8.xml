@@ -49,4 +49,8 @@
 	<jpa:repositories base-package="com.ferasinka.prospringproject.ch8"
 					  entity-manager-factory-ref="emf"
 					  transaction-manager-ref="transactionManager"/>
+
+	<jpa:auditing auditor-aware-ref="auditorAwareBean"/>
+
+	<bean id="auditorAwareBean" class="com.ferasinka.prospringproject.ch8.springdatajpa.AuditorAwareBean"/>
 </beans>

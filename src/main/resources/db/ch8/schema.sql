@@ -2,11 +2,14 @@ DROP TABLE IF EXISTS contact_hobby_detail;
 DROP TABLE IF EXISTS contact_tel_detail;
 DROP TABLE IF EXISTS hobby;
 DROP TABLE IF EXISTS contact;
+DROP TABLE IF EXISTS contact_audit;
 DROP SEQUENCE IF EXISTS contact_seq;
 DROP SEQUENCE IF EXISTS contact_tel_detail_seq;
+DROP SEQUENCE IF EXISTS contact_audit_seq;
 
 CREATE SEQUENCE contact_seq START 1;
 CREATE SEQUENCE contact_tel_detail_seq START 1;
+CREATE SEQUENCE contact_audit_seq START 1;
 
 CREATE TABLE contact (
 	id         INT         NOT NULL PRIMARY KEY DEFAULT nextval('contact_seq'),
@@ -42,3 +45,18 @@ CREATE TABLE contact_hobby_detail (
 	CONSTRAINT fk_contact_hobby_detail_1 FOREIGN KEY (contact_id) REFERENCES contact (id) ON DELETE CASCADE,
 	CONSTRAINT fk_contact_hobby_detail_2 FOREIGN KEY (hobby_id) REFERENCES hobby (hobby_id)
 );
+
+CREATE TABLE contact_audit (
+	id                 INT         NOT NULL PRIMARY KEY DEFAULT nextval('contact_audit_seq'),
+	first_name         VARCHAR(60) NOT NULL,
+	last_name          VARCHAR(40) NOT NULL,
+	birth_date         DATE,
+	version            INT         NOT NULL             DEFAULT 0,
+	created_by         VARCHAR(20),
+	created_date       TIMESTAMP,
+	last_modified_by    VARCHAR(20),
+	last_modified_date TIMESTAMP
+);
+
+CREATE UNIQUE INDEX uq_contact_audit_1
+	ON contact_audit (first_name, last_name);
