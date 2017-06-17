@@ -1,9 +1,14 @@
 DELETE FROM contact_hobby_detail;
 DELETE FROM contact_tel_detail;
+DELETE FROM contact_audit_h;
 DELETE FROM hobby;
 DELETE FROM contact;
+DELETE FROM revinfo;
 ALTER SEQUENCE contact_seq RESTART WITH 1;
 ALTER SEQUENCE contact_tel_detail_seq RESTART WITH 1;
+ALTER SEQUENCE contact_audit_seq RESTART WITH 1;
+ALTER SEQUENCE revinfo_seq RESTART WITH 1;
+ALTER SEQUENCE hibernate_sequence RESTART WITH 1;
 
 INSERT INTO contact (first_name, last_name, birth_date) VALUES ('Chris', 'Schaefer', '1981-05-03');
 INSERT INTO contact (first_name, last_name, birth_date) VALUES ('Scott', 'Tiger', '1990-11-02');

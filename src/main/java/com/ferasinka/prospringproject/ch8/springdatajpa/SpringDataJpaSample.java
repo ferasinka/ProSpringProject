@@ -48,6 +48,18 @@ public class SpringDataJpaSample {
 		contacts = contactAuditService.findAll();
 		
 		printAuditContacts(contacts);
+		
+		ContactAudit oldContact = contactAuditService.findAuditByRevision(1L, 1);
+		
+		System.out.println();
+		System.out.println("Old contact with id 1 and rev 1: " + oldContact);
+		System.out.println();
+		
+		oldContact = contactAuditService.findAuditByRevision(1L, 2);
+		
+		System.out.println();
+		System.out.println("Old contact with id 1 and rev 2: " + oldContact);
+		System.out.println();
 	}
 	
 	private static void printContacts(String message, List<Contact> contacts) {

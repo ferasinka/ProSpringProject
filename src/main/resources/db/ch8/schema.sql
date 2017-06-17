@@ -3,13 +3,20 @@ DROP TABLE IF EXISTS contact_tel_detail;
 DROP TABLE IF EXISTS hobby;
 DROP TABLE IF EXISTS contact;
 DROP TABLE IF EXISTS contact_audit;
+DROP TABLE IF EXISTS contact_audit_h;
+DROP TABLE IF EXISTS revinfo;
 DROP SEQUENCE IF EXISTS contact_seq;
 DROP SEQUENCE IF EXISTS contact_tel_detail_seq;
 DROP SEQUENCE IF EXISTS contact_audit_seq;
+DROP SEQUENCE IF EXISTS contact_audit_h_seq;
+DROP SEQUENCE IF EXISTS revinfo_seq CASCADE;
 
 CREATE SEQUENCE contact_seq START 1;
 CREATE SEQUENCE contact_tel_detail_seq START 1;
 CREATE SEQUENCE contact_audit_seq START 1;
+CREATE SEQUENCE contact_audit_h_seq START 1;
+CREATE SEQUENCE revinfo_seq START 1;
+CREATE SEQUENCE hibernate_sequence START 1;
 
 CREATE TABLE contact (
 	id         INT         NOT NULL PRIMARY KEY DEFAULT nextval('contact_seq'),
@@ -54,9 +61,35 @@ CREATE TABLE contact_audit (
 	version            INT         NOT NULL             DEFAULT 0,
 	created_by         VARCHAR(20),
 	created_date       TIMESTAMP,
-	last_modified_by    VARCHAR(20),
+	last_modified_by   VARCHAR(20),
 	last_modified_date TIMESTAMP
 );
 
 CREATE UNIQUE INDEX uq_contact_audit_1
 	ON contact_audit (first_name, last_name);
+
+CREATE TABLE contact_audit_h (
+	id                    INT         NOT NULL             DEFAULT nextval('contact_audit_h_seq'),
+	first_name            VARCHAR(60) NOT NULL,
+	last_name             VARCHAR(40) NOT NULL,
+	birth_date            DATE,
+	version               INT         NOT NULL             DEFAULT 0,
+	created_by            VARCHAR(20),
+	created_date          TIMESTAMP,
+	last_modified_by      VARCHAR(20),
+	last_modified_date    TIMESTAMP,
+	audit_revision        INT         NOT NULL,
+	action_type           INT,
+	audit_revision_end    INT,
+	audit_revision_end_ts TIMESTAMP,
+	PRIMARY KEY (id, audit_revision)
+);
+
+CREATE UNIQUE INDEX uq_contact_audit_h_1
+	ON contact_audit_h (first_name, last_name);
+
+CREATE TABLE revinfo (
+	revtstmp BIGINT NOT NULL,
+	rev      INT    NOT NULL DEFAULT nextval('revinfo_seq'),
+	PRIMARY KEY (revtstmp, rev)
+);

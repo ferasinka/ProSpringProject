@@ -42,6 +42,21 @@
 				<prop key="hibernate.jdbc.fetch_size">50</prop>
 				<prop key="hibernate.jdbc.batch_size">10</prop>
 				<prop key="hibernate.show_sql">true</prop>
+
+				<!-- Hibernate Envers -->
+				<prop key="org.hibernate.envers.audit_table_suffix">_h</prop>
+				<prop key="org.hibernate.envers.revision_field_name">audit_revision</prop>
+				<prop key="org.hibernate.envers.revision_type_field_name">action_type</prop>
+
+				<prop key="org.hibernate.envers.audit_strategy">
+					org.hibernate.envers.strategy.ValidityAuditStrategy
+				</prop>
+				<prop key="org.hibernate.envers.audit_strategy_validity_end_rev_field_name">audit_revision_end</prop>
+				<prop key="org.hibernate.envers.audit_strategy_validity_store_revend_timestamp">true</prop>
+
+				<prop key="org.hibernate.envers.audit_strategy_validity_revend_timestamp_field_name">
+					audit_revision_end_ts
+				</prop>
 			</props>
 		</property>
 	</bean>

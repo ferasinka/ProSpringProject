@@ -8,4 +8,6 @@ public interface ContactAuditService {
 	ContactAudit findById(Long id);
 	
 	ContactAudit save(ContactAudit contact);
+	
+	ContactAudit findAuditByRevision(Long id, int revision);
 }
