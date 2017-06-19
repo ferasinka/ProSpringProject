@@ -43,6 +43,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 		return super.invoke(invocation);
 	}
 	
+	@SuppressWarnings("all")
 	private Method getGetter(Method setter) {
 		Method getter = null;
 		

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Transactional
 @Repository("contactDao")
+@SuppressWarnings("unchecked")
 public class ContactDaoImpl implements ContactDao {
 	private static final Logger LOG = LoggerFactory.getLogger(ContactDaoImpl.class);
 	private SessionFactory sessionFactory;
