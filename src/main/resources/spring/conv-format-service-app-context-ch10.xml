@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/>
+
+	<bean id="conversionService" class="com.ferasinka.prospringproject.ch10.ApplicationConversionServiceFactoryBean"/>
+
+	<bean id="chris" class="com.ferasinka.prospringproject.ch10.Contact">
+		<property name="firstName" value="Chris"/>
+		<property name="lastName" value="Schaefer"/>
+		<property name="birthDate" value="1981-05-03"/>
+		<property name="personalSite" value="http://www.dtzq.com"/>
+	</bean>
+</beans>
