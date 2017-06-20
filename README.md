@@ -11,4 +11,5 @@ Source code with my modifications from Pro Spring 4th Edition: http://a.co/8Tvb5
 - ch6: Spring JDBC Support
 - ch7: Using Hibernate in Spring
 - ch8: Data Access in Spring with JPA2
+- ch9: Transaction Management
 - _Next chapters will be soon..._
