@@ -13,4 +13,5 @@ Source code with my modifications from Pro Spring 4th Edition: http://a.co/8Tvb5
 - ch8: Data Access in Spring with JPA2
 - ch9: Transaction Management
 - ch10: Validation with Type Conversion and Formatting
+- ch11: Task Scheduling in Spring
 - _Next chapters will be soon..._
