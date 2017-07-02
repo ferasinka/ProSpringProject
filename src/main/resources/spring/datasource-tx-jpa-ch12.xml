@@ -7,7 +7,7 @@
 
 
 	<context:component-scan base-package="com.ferasinka.prospringproject.ch12"/>
-	<context:property-placeholder location="config/jdbc.properties"/>
+	<context:property-placeholder location="classpath:config/jdbc.properties"/>
 
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource">
 		<property name="driverClass" value="${jdbc.driverClassName}"/>
@@ -17,8 +17,8 @@
 	</bean>
 
 	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="db/ch12/schema.sql"/>
-		<jdbc:script location="db/ch12/test-data.sql"/>
+		<jdbc:script location="classpath:db/ch12/schema.sql"/>
+		<jdbc:script location="classpath:db/ch12/test-data.sql"/>
 	</jdbc:initialize-database>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
