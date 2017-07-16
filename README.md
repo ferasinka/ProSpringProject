@@ -15,4 +15,5 @@ Source code with my modifications from Pro Spring 4th Edition: http://a.co/8Tvb5
 - ch10: Validation with Type Conversion and Formatting
 - ch11: Task Scheduling in Spring
 - ch12: Using Spring Remoting
+- ch13: Spring Testing
 - _Next chapters will be soon..._
