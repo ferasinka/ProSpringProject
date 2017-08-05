@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 		<constructor-arg ref="httpRequestFactory"/>
@@ -45,4 +46,27 @@
 			</bean>
 		</constructor-arg>
 	</bean>
+
+	<context:component-scan base-package="com.ferasinka.prospringproject.ch15"/>
+
+	<bean id="appStatisticsBean" class="com.ferasinka.prospringproject.ch15.AppStatisticsImpl"/>
+
+	<bean id="jmxExporter" class="org.springframework.jmx.export.MBeanExporter">
+		<property name="beans">
+			<map>
+				<entry key="bean:name=ProSpring4ContactApp" value-ref="appStatisticsBean"/>
+
+				<!--
+				<entry key="bean:name=ProSpring4ContactApp-hibernate" value-ref="statisticsBean"/>
+				-->
+			</map>
+		</property>
+	</bean>
+
+	<!--
+	<bean id="statisticsBean" class="org.hibernate.jmx.StatisticsService">
+		<property name="statisticsEnabled" value="true"/>
+		<property name="sessionFactoryJNDIName" value="sessionFactory"/>
+	</bean>
+	-->
 </beans>
