@@ -11,6 +11,8 @@
 		<spring-data-jpa.version>1.11.4.RELEASE</spring-data-jpa.version>
 		<spring-security.version>4.2.3.RELEASE</spring-security.version>
 		<spring-batch-core.version>3.0.8.RELEASE</spring-batch-core.version>
+		<spring-batch-integration.version>3.0.8.RELEASE</spring-batch-integration.version>
+		<spring-integration-core.version>4.3.11.RELEASE</spring-integration-core.version>
 		<hibernate.version>5.2.10.Final</hibernate.version>
 		<hibeenate-validator.version>5.4.1.Final</hibeenate-validator.version>
 		<javax.validation.version>1.1.0.Final</javax.validation.version>
@@ -201,6 +203,19 @@
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-core</artifactId>
 			<version>${spring-batch-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-integration</artifactId>
+			<version>${spring-batch-integration.version}</version>
+		</dependency>
+
+		<!-- Spring Integration -->
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+			<version>${spring-integration-core.version}</version>
 		</dependency>
 
 		<!-- Hibernate Core -->
