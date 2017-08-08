@@ -17,4 +17,6 @@ Source code with my modifications from Pro Spring 4th Edition: http://a.co/8Tvb5
 - ch12: Using Spring Remoting
 - ch13: Spring Testing
 - ch14: Scripting Support in Spring
+
+- ch18: Spring Projects: Batch, Integration, XD and Boot
 - _Next chapters will be soon..._
